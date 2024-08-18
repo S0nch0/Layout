@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="5000"
+        motion:autoTransition="animateToEnd">
+       <KeyFrameSet>
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            motion:layout_constraintBottom_toTopOf="@id/position"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/guidelineBackground"
+            motion:layout_constraintEnd_toStartOf="@id/guidelineEndVertical"
+            motion:layout_constraintVertical_chainStyle="packed"
+            android:id="@+id/name" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/photo"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/name"
+            motion:layout_constraintEnd_toStartOf="@id/guidelineEndVertical"
+            android:id="@+id/position" />
+        <Constraint
+            android:id="@+id/biography"
+            motion:layout_constraintEnd_toStartOf="@+id/guidelineEndVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/guidelineBottomHorizontal"
+            motion:layout_constraintTop_toTopOf="@+id/guidelineCenterHorizontal"
+            motion:layout_constraintStart_toStartOf="@+id/guidelineStartVertical" android:rotationX="-180" android:rotationY="130"/>
+        <Constraint
+            android:id="@+id/photo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            motion:layout_constraintBottom_toBottomOf="@id/guidelineBackground"
+            motion:layout_constraintTop_toBottomOf="@id/guidelineBackground"
+            motion:layout_constraintStart_toStartOf="@id/guidelineStartVertical"
+            android:scaleX="0.2"
+            android:scaleY="0.2" />
+        <Constraint
+            android:layout_height="0dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toTopOf="@id/guidelineBottomHorizontal"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:id="@+id/background"
+            motion:layout_constraintTop_toBottomOf="@+id/photo"
+            android:layout_marginTop="0dp" android:rotationX="180"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/phone"
+            motion:layout_constraintEnd_toEndOf="@id/guidelineEndVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="4dp"
+            motion:layout_constraintTop_toBottomOf="@id/guidelineBottomHorizontal"
+            android:alpha="1" />
+        <Constraint
+            android:id="@+id/email"
+            motion:layout_constraintEnd_toStartOf="@id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="4dp"
+            motion:layout_constraintTop_toBottomOf="@id/guidelineBottomHorizontal"
+            android:alpha="1" />
+    </ConstraintSet>
+</MotionScene>
